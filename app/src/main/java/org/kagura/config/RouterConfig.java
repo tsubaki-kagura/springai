@@ -1,16 +1,20 @@
 package org.kagura.config;
 
+import lombok.RequiredArgsConstructor;
+import org.kagura.handler.HelloHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
+@RequiredArgsConstructor
 public class RouterConfig {
+    private final HelloHandler helloHandler;
 
     @Bean
     public RouterFunction<ServerResponse> routerFunction() {
         return RouterFunctions.route()
-                .GET("/hello", _ -> ServerResponse.ok().bodyValue("Hello World!"))
+                .GET("/hello", helloHandler::hello)
                 .build();
     }
 }
