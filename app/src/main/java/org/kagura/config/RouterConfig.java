@@ -14,7 +14,9 @@ public class RouterConfig {
     @Bean
     public RouterFunction<ServerResponse> routerFunction() {
         return RouterFunctions.route()
-                .GET("/hello", helloHandler::hello)
+                .path("/hello", builder -> builder
+                        .GET("/deepseek", helloHandler::deepseekChat)
+                        .GET("/ollama", helloHandler::ollamaChat))
                 .build();
     }
 }

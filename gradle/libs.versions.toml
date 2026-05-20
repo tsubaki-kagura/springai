@@ -17,3 +17,4 @@ spring-boot-starter-webflux = { module = "org.springframework.boot:spring-boot-s
 spring-boot-starter-webflux-test = { module = "org.springframework.boot:spring-boot-starter-webflux-test" }
 spring-ai-bom = { module = "org.springframework.ai:spring-ai-bom", version.ref = "spring-ai" }
 spring-ai-starter-model-deepseek = { module = "org.springframework.ai:spring-ai-starter-model-deepseek" }
+spring-ai-starter-model-ollama = { module = "org.springframework.ai:spring-ai-starter-model-ollama" }

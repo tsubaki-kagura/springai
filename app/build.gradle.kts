@@ -35,6 +35,7 @@ dependencies {
     testImplementation(libs.spring.boot.starter.webflux.test)
     implementation(platform(libs.spring.ai.bom))
     implementation(libs.spring.ai.starter.model.deepseek)
+    implementation(libs.spring.ai.starter.model.ollama)
 }
 
 tasks.withType<Test> {
