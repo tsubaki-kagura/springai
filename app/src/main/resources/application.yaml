@@ -1,0 +1,23 @@
+logging:
+  file:
+    path: ./logs # 相对于项目根路径
+    name: ${logging.file.path}/application.log
+  logback:
+    rollingpolicy:
+      file-name-pattern: ${logging.file.path}/%d{yyyy-MM-dd}.%i.log
+      max-file-size: 32MB
+      max-history: 16 # 单位为天
+  level:
+    org.kagura: debug
+    org.springframework:
+      web: # 响应式网络层日志
+        server.adapter.HttpWebHandlerAdapter: debug # 请求/响应状态
+        reactive.function.server.support.RouterFunctionMapping: debug # 请求映射的路由
+
+spring:
+  application:
+    name: springai
+  webflux:
+    base-path: /api
+    problemdetails:
+      enabled: true

@@ -1,0 +1,86 @@
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.rar
+*.tar.gz
+
+# Compiled class file
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# BlueJ files
+*.ctxt
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+replay_pid*
+
+# Gradle GUI config
+gradle-app.setting
+
+# Gradle
+.gradle/
+build/
+
+# Kotlin Gradle plugin data, see https://kotlinlang.org/docs/whatsnew20.html#new-directory-for-kotlin-data-in-gradle-projects
+.kotlin/
+
+# Avoid ignoring Gradle wrapper jar file
+!gradle-wrapper.jar
+
+# Avoid ignore Gradle wrapper properties
+!gradle-wrapper.properties
+
+# Cache of project
+.gradletasknamecache
+
+# IntelliJ IDEA
+*.iml
+*.iws
+*.ipr
+.idea/
+.idea_modules/
+target/
+out/
+
+# Eclipse m2e generated files
+# Eclipse Core
+.project
+
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
+# VS Code
+.vscode/
+*.vsix
+
+# Log file
+*.log
+
+# 本地环境变量/配置文件
+.env.local
+application-local.yaml
+
+# mac OS
+.DS_Store
+.localized
+__MACOSX/
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# 临时文件
+*.swo
+*.swp
+*.tmp
+*~
