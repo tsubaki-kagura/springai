@@ -8,13 +8,14 @@ import org.springframework.ai.chat.client.advisor.api.AdvisorChain;
 import org.springframework.ai.chat.client.advisor.api.BaseAdvisor;
 import org.springframework.ai.chat.metadata.Usage;
 import org.springframework.ai.chat.model.ChatResponse;
-import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
 @Slf4j
-@Component
 public class UsageInfoAdvisor implements BaseAdvisor {
+    public static UsageInfoAdvisor getInstance() {
+        return new UsageInfoAdvisor();
+    }
 
     @NonNull
     @Override

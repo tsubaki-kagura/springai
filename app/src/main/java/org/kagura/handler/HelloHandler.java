@@ -2,6 +2,7 @@ package org.kagura.handler;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
@@ -22,10 +23,11 @@ public class HelloHandler {
     private Flux<String> chat(UserChatRequest userChatRequest) {
         return chatClient.prompt()
                 .user(userChatRequest.message)
+                .advisors(spec -> spec.param(ChatMemory.CONVERSATION_ID, userChatRequest.uid.toString()))
                 .stream()
                 .content();
     }
 
-    private record UserChatRequest(String message) {
+    private record UserChatRequest(Integer uid, String message) {
     }
 }

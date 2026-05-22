@@ -35,6 +35,8 @@ dependencies {
     testImplementation(libs.spring.boot.starter.webflux.test)
     implementation(platform(libs.spring.ai.bom))
     implementation(libs.spring.ai.starter.model.deepseek)
+    implementation(libs.spring.ai.starter.model.chat.memory.repository.jdbc)
+    runtimeOnly(libs.postgresql)
 }
 
 tasks.withType<Test> {
