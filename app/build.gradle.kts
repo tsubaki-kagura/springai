@@ -31,8 +31,10 @@ dependencies {
     testCompileOnly(libs.lombok)
     testAnnotationProcessor(libs.lombok)
     testRuntimeOnly(libs.junit.platform.launcher)
-    implementation(libs.spring.boot.starter.webflux)
-    testImplementation(libs.spring.boot.starter.webflux.test)
+    implementation(libs.spring.boot.starter.webmvc)
+    testImplementation(libs.spring.boot.starter.webmvc.test)
+    implementation(platform(libs.spring.ai.bom))
+    implementation(libs.spring.ai.starter.model.deepseek)
 }
 
 tasks.withType<Test> {
