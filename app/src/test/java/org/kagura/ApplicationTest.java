@@ -4,12 +4,30 @@
 package org.kagura;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.ai.document.Document;
+import org.springframework.ai.vectorstore.VectorStore;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.stream.Stream;
 
 @SpringBootTest
 class ApplicationTest {
 
+    @Autowired
+    VectorStore vectorStore;
+
     @Test
-    void contextLoads() {
+    void contextLoads() throws IOException {
+        try (Stream<String> stream = Files.lines(Paths.get("vectors"))) {
+            vectorStore.add(stream.map(this::generate).toList());
+        }
+    }
+
+    Document generate(String text) {
+        return Document.builder().text(text).build();
     }
 }

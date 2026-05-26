@@ -17,3 +17,8 @@ spring-boot-starter-webmvc = { module = "org.springframework.boot:spring-boot-st
 spring-boot-starter-webmvc-test = { module = "org.springframework.boot:spring-boot-starter-webmvc-test" }
 spring-ai-bom = { module = "org.springframework.ai:spring-ai-bom", version.ref = "spring-ai" }
 spring-ai-starter-model-deepseek = { module = "org.springframework.ai:spring-ai-starter-model-deepseek" }
+spring-ai-starter-model-ollama = { module = "org.springframework.ai:spring-ai-starter-model-ollama" }
+spring-ai-starter-vector-store-pgvector = { module = "org.springframework.ai:spring-ai-starter-vector-store-pgvector" }
+spring-boot-starter-data-jdbc = { module = "org.springframework.boot:spring-boot-starter-data-jdbc" }
+spring-ai-advisors-vector-store = { module = "org.springframework.ai:spring-ai-advisors-vector-store" }
+spring-ai-rag = { module = "org.springframework.ai:spring-ai-rag" }
