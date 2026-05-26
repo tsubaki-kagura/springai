@@ -3,6 +3,7 @@ package org.kagura.handler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.memory.ChatMemory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
@@ -12,7 +13,9 @@ import reactor.core.publisher.Mono;
 @Component
 @RequiredArgsConstructor
 public class HelloHandler {
-    private final ChatClient chatClient;
+
+    @Qualifier("deepseekChatClient")
+    private final ChatClient deepseekChatClient;
 
     public Mono<ServerResponse> hello(ServerRequest request) {
         return request.bind(UserChatRequest.class)
@@ -21,7 +24,7 @@ public class HelloHandler {
     }
 
     private Flux<String> chat(UserChatRequest userChatRequest) {
-        return chatClient.prompt()
+        return deepseekChatClient.prompt()
                 .user(userChatRequest.message)
                 .advisors(spec -> spec.param(ChatMemory.CONVERSATION_ID, userChatRequest.uid.toString()))
                 .stream()

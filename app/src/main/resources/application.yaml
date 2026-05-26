@@ -25,15 +25,24 @@ spring:
     import:
       - optional:file:.env.local[.properties] # 以 .properties 文件的格式读取 .env.local，模拟环境变量读取
   ai:
+    ollama:
+      embedding:
+        model: bge-m3:567m
     deepseek:
       api-key: ${DEEPSEEK_API_KEY}
       chat:
-        model: deepseek-v4-flash
+        model: deepseek-v4-pro
     chat:
       memory:
         repository:
           jdbc:
             initialize-schema: always
+      client:
+        enabled: false
+    vectorstore:
+      pgvector:
+        initialize-schema: true
+        dimensions: 1024
   datasource:
     url: jdbc:postgresql://localhost:5432/${spring.application.name}
     username: postgres
